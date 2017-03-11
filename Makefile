@@ -1,8 +1,10 @@
 all:
-	cp dumphelper test.dumphelper
+	chmod +x dumphelper
+	cp dumphelper /bin
 
 install:
-	cp dumphelper test.dumphelper
+	chmod +x dumphelper
+	cp dumphelper /bin
 
 uninstall:
-	rm test.dumphelper
+	rm /bin/dumphelper
