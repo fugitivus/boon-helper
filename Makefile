@@ -1,10 +1,10 @@
 all:
-	chmod +x dumphelper
-	cp dumphelper /bin
+	chmod +x boon-helper
+	cp boon-helper /bin
 
 install:
-	chmod +x dumphelper
-	cp dumphelper /bin
+	chmod +x boon-helper
+	cp boon-helper /bin
 
 uninstall:
-	rm /bin/dumphelper
+	rm /bin/boon-helper
