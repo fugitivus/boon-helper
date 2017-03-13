@@ -1,1 +1,2 @@
-# dumphelper
+BOON-HELPER v.01a
+A helper script for students with no linux knowledge...
