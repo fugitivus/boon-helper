@@ -89,13 +89,29 @@ printout_linux () {
 }
 
 printout_hashcat () {
-	echo "Hashcat-MD5-Bruteforce Beispiel"
-	echo "hashcat -n 2 -m 0 -a 3 --pw-min 9 hashfile.txt ?l?l?l?l?l?l?l?l?l?l"
-	echo "-n = 2 threads"
-	echo "-m 0 = md5"
-	echo "-pw-min 9 = minimal 9 characters"
-	echo "hashfile.txt = is txt file where the hash is located"
-	echo "?l?l?l?l?l?l?l?l?l?l = lowercase password"
+	echo $col_r"Hashcat Beispiele zur Passwortsicherheit:\n"
+	echo $col_y"Hashcat Hile   "$col_g"hashcat --help\n"
+	echo $col_r"Benutzte Parameter:"
+	echo $col_c"-a             "$col_g"AttackMode (3 = BruteForce)"
+	echo $col_c"-m             "$col_g"Method (0 = MD5)"
+	echo $col_c"-1             "$col_g"Benutzerdefinierte Maske 1\n"
+	echo $col_r"Benutzte Maske:"
+	echo $col_c"?l             "$col_g"abcdefghijklmnopqrstuvwxyz" 
+	echo $col_c"?u             "$col_g"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	echo $col_c"?d             "$col_g"0123456789"
+	echo $col_c"?s             "$col_g"Sonderzeichen\n"
+	echo $col_r"Beispiel mit MD5:"
+	echo $col_c"echo -n 'Test!' | md5sum | cut -d ' ' -f1 > hash.txt"
+	echo $col_c"hashcat -a 3 -m 0 -1 ?l?u?d?s hash.txt ?1?1?1?1?1\n"
+	echo $col_r"Beispiel mit SHA-1:"
+	echo $col_c"echo -n 'Test!' | sha1sum | cut -d ' ' -f1 > hash.txt"
+	echo $col_c"hashcat -a 3 -m 100 -1 ?l?u?d?s hash.txt ?1?1?1?1?1\n"
+	echo $col_r"Beispiel mit SHA-256:"
+	echo $col_c"echo -n 'Test!' | sha256sum | cut -d ' ' -f1 > hash.txt"
+	echo $col_c"hashcat -a 3 -m 1400 -1 ?l?u?d?s hash.txt ?1?1?1?1?1\n"
+	echo $col_r"Beispiel mit SHA-512:"
+	echo $col_c"echo -n 'Test!' | sha512sum | cut -d ' ' -f1 > hash.txt"
+	echo $col_c"hashcat -a 3 -m 1700 -1 ?l?u?d?s hash.txt ?1?1?1?1?1\n"
 }
 
 if [ "$1" = "linux" ]
