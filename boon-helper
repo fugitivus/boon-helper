@@ -122,7 +122,7 @@ if [ "$1" = "linux" ]
 		then
 		printout_hashcat
 	else
-		echo $col_r'\ndumphelper script usage = dumphelper <parameter>'
+		echo $col_r'\nboon-helper script usage = boon-helper <parameter>'
 		echo $col_g'\nParameter sind:'
 		echo $col_c'linux    -    '$col_g'Kleine Befehlsübesicht für die Linux-Shell.'
 		echo $col_c'hashcat  -    '$col_g'Kleine Befehlsübersicht für hashcat basics.\n'              
