@@ -11,6 +11,7 @@ col_n='\033[0m'
 
 #Ausgabe der grundlegenden Linux-Shell kommandos:
 printout_linux () {
+	echo "\n\n"
 	echo $col_r'Benutzerverwaltung:'
 	echo $col_c'adduser        '$col_g'Hinzufügen eines Benutzers'
 	echo $col_c'chsh           '$col_g'Änderung der Standard-Shell des Benutzers ("change shell")'
@@ -89,6 +90,7 @@ printout_linux () {
 }
 
 printout_hashcat () {
+	echo "\n\n"
 	echo $col_r"Hashcat Beispiele zur Passwortsicherheit:\n"
 	echo $col_y"Hashcat Hilfe  "$col_g"hashcat --help\n"
 	echo $col_r"Benutzte Parameter:"
@@ -115,6 +117,7 @@ printout_hashcat () {
 }
 
 printout_docker_install () {
+	echo "\n\n"
 	echo $col_r"Docker Installation – Die Grundlagen (Debian8-64Bit):\n"
 	echo $col_g"Docker ist ein „hoch-frequentiertes“ Projekt in welchem es häufig"
 	echo $col_g"Änderungen und neue Releases gibt. Um immer auf einer aktuellen "
@@ -149,6 +152,7 @@ printout_docker_install () {
 }
 
 printout_docker_gui () {
+	echo "\n\n"
 	echo $col_r"Docker GUI – Portainer für einfaches verwalten:\n"
 	echo $col_g"Für den einfachen Einstieg in Docker empfiehlt sich das Grafische"
 	echo $col_g"User Interface Portainer. Portainer bietet eine einfache grafische"
@@ -168,6 +172,7 @@ printout_docker_gui () {
 }
 
 printout_docker_images () {
+	echo "\n\n"
 	echo $col_r"Docker Images verwalten - Die Grundlagen:\n"
 	echo $col_g"Die Basis von Docker Bilden die Images\n"
 	echo $col_r"Image auf https://hub.docker.com suchen:"
@@ -194,6 +199,7 @@ printout_docker_images () {
 }
 
 printout_docker_container () {
+	echo "\n\n"
 	echo "coming soon..."
 }
 
