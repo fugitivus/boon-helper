@@ -90,7 +90,7 @@ printout_linux () {
 
 printout_hashcat () {
 	echo $col_r"Hashcat Beispiele zur Passwortsicherheit:\n"
-	echo $col_y"Hashcat Hile   "$col_g"hashcat --help\n"
+	echo $col_y"Hashcat Hilfe  "$col_g"hashcat --help\n"
 	echo $col_r"Benutzte Parameter:"
 	echo $col_c"-a             "$col_g"AttackMode (3 = BruteForce)"
 	echo $col_c"-m             "$col_g"Method (0 = MD5)"
@@ -114,17 +114,120 @@ printout_hashcat () {
 	echo $col_c"hashcat -a 3 -m 1700 -1 ?l?u?d?s hash.txt ?1?1?1?1?1\n"
 }
 
-if [ "$1" = "linux" ]
+printout_docker_install () {
+	echo $col_r"Docker Installation – Die Grundlagen (Debian8-64Bit):\n"
+	echo $col_g"Docker ist ein „hoch-frequentiertes“ Projekt in welchem es häufig"
+	echo $col_g"Änderungen und neue Releases gibt. Um immer auf einer aktuellen "
+	echo $col_g"Version zu sein empfiehlt es sich, Docker aus dem offiziellem Docker"
+	echo $col_g"Repository zu installieren. Um dies zu ermöglichen gehen sie bitte"
+	echo $col_g"wie folgt vor:\n"
+	echo $col_r"System auf aktuellen Stand bringen:"
+	echo $col_c"sudo apt-get update && sudo apt-get upgrade -y"
+	echo $col_r"„apt-https-transport“ installieren:"
+	echo $col_c"sudo apt-get install apt-transport-https ca-certificates -y\n"
+	echo $col_r"PGP-Key für das Docker Repository hinzufügen:"
+	echo $col_c"sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80"
+	echo $col_c"   --recv-keys 58118E89F3A912897C070ADBF76221572C52609D\n"
+	echo $col_r"Docker Repository hinzufügen:"
+	echo $col_c"touch /etc/apt/sources.list.d/docker.list"
+	echo $col_c"echo „deb https://apt.dockerproject.org/repo debian-jessie main” >>"
+	echo $col_c"   /etc/apt/sources.list.d/docker.list"
+	echo $col_r"Docker aus Repository installieren:\n"
+	echo $col_c"sudo apt-get update && sudo apt-get install docker-engine\n"
+	echo $col_r"Docker Starten/Stoppen und Staus überprüfen:"
+	echo $col_c"sudo service docker start"
+	echo $col_c"sudo service docker stop"
+	echo $col_c"sudo service docker status\n"
+	echo $col_r"Docker Installation testen:"
+	echo $col_c"sudo docker run hello-world"
+	echo $col_r"output:"
+	echo $col_c"Hello from Docker."
+	echo $col_c"This message shows that your installation appears to be working correctly.\n"
+	echo $col_r"Weitere Informationen zu Docker siehe:"
+	echo $col_y"https://docs.docker.com/"
+	echo $col_y"https://www.linuxbabe.com/linux-server/install-docker-on-debian-8-jessie-server"$col_n
+}
+
+printout_docker_gui () {
+	echo $col_r"Docker GUI – Portainer für einfaches verwalten:\n"
+	echo $col_g"Für den einfachen Einstieg in Docker empfiehlt sich das Grafische"
+	echo $col_g"User Interface Portainer. Portainer bietet eine einfache grafische"
+	echo $col_g"Konfigurations- und Verwaltungsmöglichkeit über ein Web-Interface"
+	echo $col_g"via Web-Browser, unterstützt aber noch nicht alle aktuellen Features.\n"
+	echo $col_r"Installation:"
+	echo $col_c"docker pull portainer/portainer"
+	echo $col_c"docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer\n"
+	echo $col_r"Portainer Starten/Stoppen:"
+	echo $col_c"docker start portainer"
+	echo $col_c"docker stop portainer\n"
+	echo $col_r"Zugriff auf das Portainer Web-Interface:"
+	echo $col_c"http://127.0.0.1:9000\n"
+	echo $col_r"Weitere Informationen zu Portainer siehe:"
+	echo $col_y"https://hub.docker.com/r/portainer/portainer/\n"$col_n
+
+}
+
+printout_docker_images () {
+	echo $col_r"Docker Images verwalten - Die Grundlagen:\n"
+	echo $col_g"Die Basis von Docker Bilden die Images\n"
+	echo $col_r"Image auf https://hub.docker.com suchen:"
+	echo $col_c"docker search <imageName>"
+	echo $col_g"Bsp:"
+	echo $col_c"docker search debian\n"
+	echo $col_r"Image von https://hub.docker.com herunterladen:"
+	echo $col_c"docker pull <maintainer/imagename:tag>"
+	echo $col_g"Bsp:"
+	echo $col_c"docker pull fugitivus/debian:jessie\n"
+	echo $col_r"Image auf https://hub.docker.com hoch-laden:"
+	echo $col_y"!!! Nur mit Dockerhub Account möglich."
+	echo $col_y"!!! User muss bereits connected sein."
+	echo $col_y"!!! siehe docker login --help\n"
+	echo $col_r"docker push <maintainer/imagename:tag>"
+	echo $col_g"Bsp:"
+	echo $col_c"docker push fugitivus/debian:jessie\”"
+	echo $col_r"Image aus Dockerfile erstellen:"
+	echo $col_c"docker build -t <maintainer/imagename:tag> -f <dockerfile> ."
+	echo $col_g"Bsp:"
+	echo $col_c"docker build -t fugitivus/debian:jessie -f debian.docker .\n"
+	echo $col_r"Weitere Informationen:"
+	echo $col_y"docker --help / docker pull –help / docker search –help etc."$col_n
+}
+
+printout_docker_container () {
+	echo "coming soon..."
+}
+
+
+if [ "$1" = "linux.shell" ]
 	then
 		printout_linux
 
-	elif [ "$1" = "hashcat" ]
+	elif [ "$1" = "linux.hashcat" ]
 		then
 		printout_hashcat
+	elif [ "$1" = "docker.install" ]
+		then
+		printout_docker_install
+	elif [ "$1" = "docker.gui" ]
+		then
+		printout_docker_gui
+	elif [ "$1" = "docker.images" ]
+		then
+		printout_docker_images
+
+	elif [ "$1" = "docker.container" ]
+		then
+		printout_docker_container
+
 	else
 		echo $col_r'\nboon-helper script usage = boon-helper <parameter>'
 		echo $col_g'\nParameter sind:'
-		echo $col_c'linux    -    '$col_g'Kleine Befehlsübesicht für die Linux-Shell.'
-		echo $col_c'hashcat  -    '$col_g'Kleine Befehlsübersicht für hashcat basics.\n'              
+		echo $col_c'linux.shell       -  '$col_g'Kleine Befehlsübesicht für die Linux-Shell.'
+		echo $col_c'linux.hashcat     -  '$col_g'Kleine Befehlsübersicht für hashcat basics.'
+		echo $col_c'docker.install    -  '$col_g'Kleine Installationsanleitung für Docker.'
+		echo $col_c'docker.gui        -  '$col_g'Kleine Anleitung für Portainer (eine Docker GUI)'
+		echo $col_c'docker.images     -  '$col_g'Docker Images verwalten (kleine Anleitung)'
+		echo $col_c'docker.container  -  '$col_g'Docker Container verwalten (kleine Anleitung)'
+              
 fi
 echo $col_n
