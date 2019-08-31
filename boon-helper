@@ -69,7 +69,7 @@ printout_linux () {
 	echo $col_c'uptime         '$col_g'Angabe der Laufzeit und Auslastung des Computers'
 	echo $col_c'vmstat         '$col_g'erste Analyse von Engpässen\n'
 	echo $col_r'Grundkommandos:'
-	echo $col_c'cat            '$col_g'Verknüpfung von Dateien ("concatenate")'
+	echo $col_c'cat            '$col_g'Dateien Anzeigen ("concatenate")'
 	echo $col_c'cd             '$col_g'Wechsel des Arbeitsverzeichnisses ("change directory")'
 	echo $col_c'cp             '$col_g'Kopie von Dateien oder Verzeichnisses ("copy")'
 	echo $col_c'date           '$col_g'Anzeige von Datum und Zeit'
@@ -189,7 +189,7 @@ printout_docker_images () {
 	echo $col_y"!!! siehe docker login --help\n"
 	echo $col_r"docker push <maintainer/imagename:tag>"
 	echo $col_g"Bsp:"
-	echo $col_c"docker push fugitivus/debian:jessie\”"
+	echo $col_c"docker push fugitivus/debian:jessie"
 	echo $col_r"Image aus Dockerfile erstellen:"
 	echo $col_c"docker build -t <maintainer/imagename:tag> -f <dockerfile> ."
 	echo $col_g"Bsp:"
