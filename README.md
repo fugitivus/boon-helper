@@ -1,6 +1,6 @@
 BOON-HELPER v.01a<br>
 A helper script for students with no linux knowledge...<br>
-(c) 2016 - 2017 by fugitivus (fugitivus@gmx.de)<br>
+(c) 2016 - 2019 by fugitivus (fugitivus@gmx.de)<br>
 Licensed under: GNU General Public License, Version 3<br>
 <br>
 "install" with:<br>
